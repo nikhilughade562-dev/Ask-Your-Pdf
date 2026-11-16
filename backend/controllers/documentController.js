@@ -58,17 +58,19 @@ const uploadDocument = async (req, res) => {
     });
 
   } catch (error) {
-
-    // Remove uploaded file if processing fails
-    if (filePath) {
-      await fs.unlink(filePath).catch(() => {});
-    }
-
     console.error("Document upload error:", error);
     return res.status(500).json({
       success: false,
       message: error.message || "PDF processing failed"
     });
+  }
+  // deleting file after successful upload or in case of failure
+  finally{
+    if (filePath) {
+      await fs.unlink(filePath).catch((error) => {
+        console.error("Temporary PDF cleanup failed:", error.message);
+      });
+    }
   }
 };
 

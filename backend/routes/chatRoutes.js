@@ -1,6 +1,6 @@
 
 const express=require('express')
-const { retrieveChunks,askQuestion } =require('../controllers/chatController.js');
+const { askQuestion } =require('../controllers/chatController.js');
 
 const chatRouter = express.Router();
 chatRouter.post("/:documentId/ask", askQuestion);

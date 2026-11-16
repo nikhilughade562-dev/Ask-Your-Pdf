@@ -81,4 +81,4 @@ const askQuestion = async (req, res) => {
   }
 };
 
-module.exports= { retrieveChunks,askQuestion };
+module.exports= {askQuestion };

@@ -24,16 +24,6 @@ const documentSchema = new mongoose.Schema(
       required: true
     },
 
-    fileName: {
-      type: String,
-      required: true
-    },
-
-    filePath: {
-      type: String,
-      required: true
-    },
-
     fileSize: {
       type: Number,
       required: true
